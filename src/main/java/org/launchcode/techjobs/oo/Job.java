@@ -95,4 +95,23 @@ public class Job {
         return Objects.hash(id, name, employer, location, positionType, coreCompetency);
     }
 
+    @Override
+    public String toString() {
+        if(this.getName().equals("")){
+            this.setName("Data not available");
+        }
+        if( this.getEmployer() == null || this.getEmployer().toString() == "" ){
+            this.setEmployer(new Employer("Data not available"));
+        }
+        if(this.getLocation() == null || this.getLocation().toString() == ""){
+            this.setLocation(new Location("Data not available"));
+        }
+        if(this.getPositionType() == null || this.getPositionType().toString() == ""){
+            this.setPositionType(new PositionType("Data not available"));
+        }
+        if(this.getCoreCompetency() == null || this.getCoreCompetency().toString() == ""){
+            this.setCoreCompetency(new CoreCompetency("Data not available"));
+        }
+        return "\nID: " + this.getId() + "\nName: " + this.getName() + "\nEmployer: " + this.getEmployer() + "\nLocation: " + this.getLocation() + "\nPosition Type: " + this.getPositionType() + "\nCore Competency: " + this.getCoreCompetency() + "\n";
+    }
 }
