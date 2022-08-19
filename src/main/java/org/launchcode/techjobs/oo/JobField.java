@@ -4,23 +4,13 @@ import java.util.Objects;
 
 public abstract class JobField {
     private int id;
-    private static int nextId = 1;
     private String value;
 
-    public JobField(int id, int nextId, String value){
-        this.id = id;
-        this.nextId = nextId;
+    public JobField(int nextId, String value){
+        this.id = nextId;
         this.value = value;
-    }
-    public JobField() {
-        id = nextId;
-        nextId++;
     }
 
-    public JobField(String value) {
-        this();
-        this.value = value;
-    }
 
     public String toString() {
         return value;
@@ -49,6 +39,8 @@ public abstract class JobField {
         return value;
     }
 
-
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }
